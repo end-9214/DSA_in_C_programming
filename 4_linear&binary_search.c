@@ -10,7 +10,7 @@ int linearSearch(int arr[], int size, int element){
 }
 
 int main(){
-  int arr[100]={123,14,12,32,4,6,54,43};
+  int arr[100]={123,14,12,32,4,6,54,43}; 
   int size = sizeof(arr)/sizeof(int);
   int element;
   printf("Enter the element to be searched: ");
