@@ -23,20 +23,6 @@ int main(){
 
     printf("\n");
 
-    int element;
-    printf("enter the element you want to insert : \n");
-    scanf("%d",&element);
-    int index;
-    printf("enter the index at which you want to insert the element : \n");
-    scanf("%d",&index);
-
-    for (int k=n-1;k>n;k--){
-      array[k+1]=array[k];
-
-    }
-
-    printf("\n");
-
 
 
 
