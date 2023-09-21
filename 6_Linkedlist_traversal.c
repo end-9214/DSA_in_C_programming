@@ -42,7 +42,8 @@ int main(){
   fourth -> data = 99;
   fourth -> next = NULL;
 
-
+  linkedlistTraversal(head);
+  
 
   return 0;
 
