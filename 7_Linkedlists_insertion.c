@@ -67,7 +67,7 @@ struct Node * insertAtEnd(struct Node * head, int data){
    p->next = ptr;
    ptr->next = NULL;
    return head;
-   
+    
 
 }
 
