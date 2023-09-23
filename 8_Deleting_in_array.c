@@ -105,7 +105,7 @@ int main(){
   sixth->next = NULL;
 
 
-
+  printf("Linked list before deletion\n");
   linkedTraversal(head);
   printf("After deletion at first\n");
   head = deletionAtFirst(head);
