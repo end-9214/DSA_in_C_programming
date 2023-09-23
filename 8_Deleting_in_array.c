@@ -110,8 +110,11 @@ int main(){
   printf("After deletion at first\n");
   head = deletionAtFirst(head);
   linkedTraversal(head);
+  int index;
+  printf("Enter the index\n");
+  scanf("%d",&index);
   printf("After deletion at index\n");
-  head = deletionAtIndex(head,2);
+  head = deletionAtIndex(head,index);
   linkedTraversal(head);
   printf("After deletion at end\n");
   head = deletionAtEnd(head);
