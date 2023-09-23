@@ -33,16 +33,16 @@ struct Node * deletionAtFirst(struct Node * head){
 
 struct Node * deletionAtIndex(struct Node * head, int index){
   struct Node *p = head;
-  struct Node *q = head->next;
+  struct Node *ptr = head->next;
   int i = 0;
   while (i!=index-1){
     p = p-> next;
-    q = q->next;
+    ptr = ptr->next;
     i++;
 
   }
-  p->next = q->next;
-  free(q);
+  p->next = ptr->next;
+  free(ptr);
   return head;
 
 }
@@ -93,6 +93,10 @@ int main(){
   printf("After deletion at first\n");
   head = deletionAtFirst(head);
   linkedTraversal(head);
+  printf("After deletion at index\n");
+  head = deletionAtIndex(head,2);
+  linkedTraversal(head);
+
 
 
 
