@@ -31,6 +31,18 @@ void isEmpty(struct stack * ptr){
   }
 };
 
+// peak operation
+int Peak(struct stack * ptr, int i){
+  int arrInd = ptr->top - i + 1;
+  if(arrInd<0){
+    printf("Not a valid position for the stack\n");
+
+  }
+  else{
+    return ptr->arr[arrInd];
+
+  }
+}
 
 int main(){
   struct stack *s = (struct stack *)malloc(sizeof(struct stack));
@@ -52,6 +64,12 @@ int main(){
 
   printf("The stack before pop operation\n");
   display(s);
+  int Index;
+  printf("Enter the index of the element you want to peak\n");
+  scanf("%d",&Index);
+  
+  printf("The element at position 2 is %d\n",Peak(s,Index));
+
    
 
   return 0;
