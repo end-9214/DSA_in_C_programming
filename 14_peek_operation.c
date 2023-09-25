@@ -52,7 +52,7 @@ int main(){
 
   printf("The stack before pop operation\n");
   display(s);
-  
+   
 
   return 0;
 }
