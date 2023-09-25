@@ -57,6 +57,16 @@ int main(){
   for(int i=0;i<=s->top;i++){
     printf("%d\n",s->arr[i]);
   }
+  printf("after the operation: push\n");
+
+  if(isFull(s)){
+    printf("The stack is full");
+
+  }
+  else{
+    printf("The stack is not full");
+  }
+
   return 0;
 
 }
