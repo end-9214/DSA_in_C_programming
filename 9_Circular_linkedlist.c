@@ -15,6 +15,20 @@ void linkedTraversal(struct Node * head){
   }while(ptr!=head);
 };
 
+struct Node * insertionAtFirst(struct Node * head, int data){
+  struct Node * ptr = (struct Node *)malloc(sizeof(struct Node));
+  ptr -> data = data;
+  struct Node * p = head -> next;
+  while(p->next!=head){
+    p = p->next;
+  }
+  p->next=p;
+  head = ptr;
+  ptr->next = head;
+  return head;
+};
+
+
 int main(){
   struct Node * head;
   struct Node * second;
@@ -35,6 +49,10 @@ int main(){
 
   printf("Circular linked list before deletion\n");
   linkedTraversal(head);
+  head = insertionAtFirst(head, 56);
+  printf("Circular linked list after insertion\n");
+  linkedTraversal(head);
+  
 
 
 
