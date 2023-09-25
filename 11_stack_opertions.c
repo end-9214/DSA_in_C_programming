@@ -21,7 +21,7 @@ int isFull(struct stack * ptr){
 
 
 int main(){
-  struct stack *s;
+  struct stack *s =(struct stack *)malloc(sizeof(struct stack));
   s->top = -1;
   s->size = 5;
   s->arr = (int *)malloc(s->size *sizeof(int));
@@ -40,13 +40,15 @@ int main(){
   s->arr[3]=4;
   s->top++;
 
-  int element=6;
+  int element;
   
   if(isFull(s)){
     printf("The stack is full");
 
   }
   else{
+  printf(" enter the element to be pushed: \n");
+  scanf("%d",&element);
   s->top++;
   s->arr[s->top]=element;
   }
@@ -55,14 +57,6 @@ int main(){
   for(int i=0;i<=s->top;i++){
     printf("%d\n",s->arr[i]);
   }
-
-printf("%d\n",s->top);
-
-
-
-
-
-
   return 0;
 
 }
