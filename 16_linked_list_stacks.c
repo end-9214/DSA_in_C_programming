@@ -44,12 +44,29 @@ struct Node * push(struct Node * top, int x){
   }
 };
 
+struct Node * pop(struct Node * top){
+  if(isEmpty(top)){
+    printf("Stack Underflow\n");
+
+  }else{
+    struct Node * n = top;
+    top = top->next;
+    free(n);
+    return top;
+  }
+}
+
 int main(){
   struct Node * top = NULL;
   top = push(top, 78);
   top = push(top, 7);
   top = push(top, 8);
 
+  linkedListTraversal(top);
+
+  top = pop(top);
+
+  printf("After popping out\n");
   linkedListTraversal(top);
 
   return 0;
