@@ -33,7 +33,7 @@ int isEmpty(struct Node * top){
 }
 
 struct Node * push(struct Node * top, int x){
-  if(isFull){
+  if(isFull(top)){
     printf("Stack Overflow\n");
   }else{
     struct Node *n = (struct Node *)malloc(sizeof(struct Node));
@@ -48,6 +48,9 @@ int main(){
   struct Node * top = NULL;
   top = push(top, 78);
   top = push(top, 7);
+  top = push(top, 8);
+
+  linkedListTraversal(top);
 
   return 0;
 }
