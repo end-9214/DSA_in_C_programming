@@ -56,9 +56,16 @@ int main(){
   // Printing the stack
   display(s);
 
+  //Pushing an element manually
+  char element;
+  printf("\nEnter the element you want to push\n");
+  scanf("%c",&element);
+  push(s,element);
+  printf("Now the stack is\n");
+  display(s);
   // Popping an element manually
   char val = pop(s);
-  printf("\nWe popped %c from the stack\n", val);
+  printf("\nWe popped '%c' from the stack\n", val);
   printf("Now the stack is\n");
   display(s);
 
