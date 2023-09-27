@@ -13,10 +13,30 @@ void display(struct stack *ptr){
   };
 };
 
+int push(struct stack *ptr, char val){
+  if(ptr->top == ptr->size-1){
+    printf("Stack Overflow");
+  }else{
+    ptr->top++;
+    ptr->arr[ptr->top] = val;
+  }
+};
+
+char pop(struct stack *ptr){
+  if(ptr->top == -1){
+    printf("Stack Underflow");
+
+  }else{
+    char val = ptr->arr[ptr->top];
+    ptr->top--;
+    return val;
+  }
+}
+
 int main(){
 
   struct stack *s;
-  s->size=10;
+  s->size=100;
   s->top=-1;
   s->arr=(char *)malloc(s->size * sizeof(char));
 
@@ -35,6 +55,13 @@ int main(){
 
   // Printing the stack
   display(s);
+
+  // Popping an element manually
+  char val = pop(s);
+  printf("\nWe popped %c from the stack\n", val);
+  printf("Now the stack is\n");
+  display(s);
+
 
 
   return 0;
