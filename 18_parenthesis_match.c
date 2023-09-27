@@ -52,6 +52,16 @@ int main(){
   s->arr[2] = 'c';
   s->top++;
 
+  s->arr[3] = 'd';
+  s->top++;
+
+  s->arr[4] = 'e';
+  s->top++;
+
+  s->arr[5] = 'f';
+  s->top++;
+  
+
 
   // Printing the stack
   display(s);
