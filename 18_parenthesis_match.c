@@ -60,7 +60,7 @@ int main(){
 
   s->arr[5] = 'f';
   s->top++;
-  
+
 
 
   // Printing the stack
