@@ -107,7 +107,7 @@ return postfix;
 
 
 int main(){
-  char * infix = "a+b";
+  char * infix = "a+b-d/c";
   printf("Postfix is %s", infixToPostfix(infix));
 
   return 0;
