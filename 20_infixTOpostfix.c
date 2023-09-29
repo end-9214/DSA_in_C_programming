@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 struct stack{
   int size;
@@ -71,14 +72,14 @@ int stackTop(struct stack *sp){
 }
 
 char * infixToPostfix(char * infix){
-  struct stack * sp;
+  struct stack * sp = (struct stack *)malloc(sizeof(struct stack));
   sp->size = 100;
   sp->top = -1;
   sp->arr = (char *)malloc(sp->size * sizeof(char));
   char * postfix = (char *)malloc((strlen(infix)+1) * sizeof(char));
   int i = 0 ; // Track infix traversal
   int j = 0; // Track postfix addition
-  while (infix[i]!="\0")
+  while (infix[i]!='\0')
   {
     if(!isOperator(infix[i])){
       postfix[j] = infix[i];
@@ -106,9 +107,8 @@ return postfix;
 
 
 int main(){
-  char * infix = "a+b*c-d/e";
-  char * postfix = infixToPostfix(infix);
-  printf("Postfix is %s", postfix);
+  char * infix = "a+b";
+  printf("Postfix is %s", infixToPostfix(infix));
 
   return 0;
 }
