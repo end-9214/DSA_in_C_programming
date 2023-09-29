@@ -74,10 +74,18 @@ int main(){
   struct stack *s;
   s->size = 100;
   s->top = -1;
-  s->arr = (char *)malloc(sp->size * sizeof(char));
+  s->arr = (char *)malloc(s->size * sizeof(char));
 
   char *exp = "((8)(*--$$9))";
   parenthesisMatch(exp);
+  
+  if(parenthesisMatch(exp)){
+    printf("The parenthesis is matching\n");
+  }
+  else{
+    printf("The parenthesis is not matching\n");
+  }
+
 
 
   return 0;
