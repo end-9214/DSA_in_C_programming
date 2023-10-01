@@ -26,7 +26,7 @@ void display(struct queue *q){
 int main(){
   struct queue *q;
   q->size = 4;
-  q->f = q->r = -1;
+  q->f = q->r = 0;
   q->arr=(int *)malloc(q->size * sizeof(int));
 
   enqueue(q,12);
@@ -39,9 +39,6 @@ int main(){
   printf("\ntrying to add one more element to the queue\n");
 
   enqueue(q,16);
-
-
-
 
   return 0;
 }
