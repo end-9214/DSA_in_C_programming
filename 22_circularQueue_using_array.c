@@ -19,7 +19,7 @@ void enqueue(struct circularqueue *q, int val){
 
 void display(struct circularqueue *q){
   for (int i=0;i<q->size;i++){
-    printf("%d ",q->arr[i]);
+    printf("%d/n",q->arr[i]);
   }
 }
 
