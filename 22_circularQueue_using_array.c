@@ -1,30 +1,30 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct queue{
+struct circularqueue{
   int size;
   int f;
   int r;
   int *arr;
 };
 
-void enqueue(struct queue *q, int val){
+void enqueue(struct circularqueue *q, int val){
   if((q->r+1)%q->size==q->f){
-    printf("Queue is Full\n");
+    printf("circularQueue is Full\n");
   }else{
     q->r=(q->r+1)%q->size;
     q->arr[q->r]=val;
   }
 }
 
-void display(struct queue *q){
+void display(struct circularqueue *q){
   for (int i=0;i<q->size;i++){
     printf("%d ",q->arr[i]);
   }
 }
 
 int main(){
-  struct queue *q;
+  struct circularqueue *q;
   q->size = 4;
   q->f = q->r = 0;
   q->arr=(int *)malloc(q->size * sizeof(int));
@@ -36,7 +36,7 @@ int main(){
 
   display(q);
 
-  printf("\ntrying to add one more element to the queue\n");
+  printf("\ntrying to add one more element to the circularqueue\n");
 
   enqueue(q,16);
 
