@@ -19,14 +19,14 @@ void enqueue(struct circularqueue *q, int val){
 
 void display(struct circularqueue *q){
   for (int i=0;i<q->size;i++){
-    printf("%d/n",q->arr[i]);
+    printf("%d\n",q->arr[i]);
   }
 }
 
 int main(){
   struct circularqueue *q;
   q->size = 4;
-  q->f = q->r = 0;
+  q->f = q->r = -1;
   q->arr=(int *)malloc(q->size * sizeof(int));
 
   enqueue(q,12);
@@ -36,9 +36,9 @@ int main(){
 
   display(q);
 
-  printf("\ntrying to add one more element to the circularqueue\n");
-
   enqueue(q,16);
+
+  enqueue(q,17);
 
   return 0;
 }
