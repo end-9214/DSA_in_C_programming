@@ -56,7 +56,11 @@ int main(){
   enqueue(45);
   enqueue(48);
   enqueue(65);
+  printf("After enqueue operation\n");
+  LinkedlistTraversal(f);
 
+  dequeue();
+  printf("After dequeue operation\n");
   LinkedlistTraversal(f);
 
   return 0;
