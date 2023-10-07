@@ -1,6 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+  struct Node *f = NULL;
+  struct Node *r = NULL;
+
 struct Node{
   int data;
   struct Node *next;
@@ -15,7 +18,21 @@ void LinkedlistTraversal(struct Node *ptr){
   }
 }
 
-void enqueue(struct Node * f,struct Node *r, int val){
+void dequeue(){
+  int val = -1;
+  struct Node *ptr = f;
+  if(ptr==NULL){
+    printf("Queue is empty\n");
+
+  }else{
+    f = f->next;
+    val = ptr->data;
+    free(ptr);
+
+  }
+}
+
+void enqueue(int val){
   struct Node *n = (struct Node *)malloc(sizeof(struct Node));
   if(n==NULL){
     printf("Queue is full\n");
@@ -24,7 +41,7 @@ void enqueue(struct Node * f,struct Node *r, int val){
     n->data = val;
     n->next = NULL;
     if(f==NULL){
-      f=r=NULL;
+      f=r=n;
     }else{
       r->next = n;
       r= n;
@@ -34,10 +51,13 @@ void enqueue(struct Node * f,struct Node *r, int val){
 }
 
 int main(){
-  struct Node *f = NULL;
-  struct Node *r = NULL;
-  LinkedlistTraversal(f);
 
+  enqueue(34);
+  enqueue(45);
+  enqueue(48);
+  enqueue(65);
+
+  LinkedlistTraversal(f);
 
   return 0;
 }
