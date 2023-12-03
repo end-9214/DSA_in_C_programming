@@ -10,27 +10,32 @@ void printArray(int *A, int n)
   printf("\n");
 }
 
-void merge(int A[], int mid, int low, int high)
-{
-  int i, j, k, B[100];
-  i = low;
-  j = mid + 1;
+void merge(int A[], int mid, int low, int high){
+  int i, j,k, B[100];
+  i= low;
+  j = mid+1;
+  k= low;
 
-  k = low;
-  while (i <= mid && j <= high)
-  {
-    if (A[i] < A[j])
-    {
+  while(i<=mid && j<=high){
+    if(A[i]<A[j]){
       B[k] = A[i];
-      i++;
-      k++;
-    }
-    else
-    {
+      i++;k++;
+    }else{
       B[k] = A[j];
-      j++;
-      k++;
+      j++;k++;
     }
+  }
+  while(i<=mid){
+    B[k] = A[i];
+    k++;i++;
+
+  }
+  while(j<=high){
+    B[k] = A[i];
+    k++;j++;
+  }
+  for(int i = low; i< high ; i++){
+    A[i] = B[i];
   }
 }
 
@@ -49,10 +54,10 @@ void mergeSort(int A[], int low, int high)
 int main()
 {
 
-  int A[] = {2, 4, 6, 8, 10, 12, 14, 16, 18};
+  int A[] = {2, 12, 321, 23, 454, 6, 43, 56, 278};
   int n = 9;
   printArray(A, n);
-  mergeSort(A, 0, n);
+  mergeSort(A, 0, 8);
   printf("Sorted array: \n");
   printArray(A, n);
 
