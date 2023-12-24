@@ -23,6 +23,42 @@ void display(struct node *root){
   }
 }
 
+struct node *deleteNode(struct Node * root, int value){
+  // search for the node to be deleted
+  if(value < root->data){
+    deleteNode(root->left, value);
+  }else if(value > root->data){
+    deleteNode(root->right, value);
+  }
+  // Deletion strategy
+  else{
+    // case 1 : No child
+    if(root->left == NULL && root->right == NULL){
+      free(root);
+      root = NULL;
+    }
+    // case 2 : 1 child
+    else if(root->left == NULL){
+      struct node *temp = root;
+      root = root->right;
+      free(temp);
+    }
+    else if(root->right == NULL){
+      struct node *temp = root;
+      root = root->left;
+      free(temp);
+    }
+    // case 3 : 2 children
+    else{
+      struct node *temp = findMin(root->right);
+      root->data = temp->data;
+      root->right = deleteNode(root->right, temp->data);
+    }
+
+    
+  }
+};
+
 
 int main(){
 
@@ -41,7 +77,7 @@ int main(){
 
   display(p);
 
-  
+
 
   return 0;
 }
