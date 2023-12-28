@@ -23,7 +23,33 @@ void display(struct node *root){
   }
 }
 
-struct node *deleteNode(struct Node * root, int value){
+struct node *inOrder(struct node *root){
+  root = root->right;
+  while(root->left != NULL){
+    root = root->left;
+  }
+  return root;
+};
+
+
+struct node *inOrderPredecessor(struct node *root){
+  root = root->left;
+  while(root->right != NULL){
+    root = root->right;
+  }
+  return root;
+};
+
+struct node *deleteNode(struct node * root, int value){
+struct node *iPre;
+  if(root == NULL){
+    return NULL;
+  }
+  if(root->left == NULL && root->right == NULL){
+    free(root);
+    return NULL;
+  } 
+
   // search for the node to be deleted
   if(value < root->data){
     deleteNode(root->left, value);
@@ -32,31 +58,14 @@ struct node *deleteNode(struct Node * root, int value){
   }
   // Deletion strategy
   else{
-    // case 1 : No child
-    if(root->left == NULL && root->right == NULL){
-      free(root);
-      root = NULL;
-    }
-    // case 2 : 1 child
-    else if(root->left == NULL){
-      struct node *temp = root;
-      root = root->right;
-      free(temp);
-    }
-    else if(root->right == NULL){
-      struct node *temp = root;
-      root = root->left;
-      free(temp);
-    }
-    // case 3 : 2 children
-    else{
-      struct node *temp = findMin(root->right);
-      root->data = temp->data;
-      root->right = deleteNode(root->right, temp->data);
-    }
-
+    iPre = inOrderPredecessor(root);
+    root->data = iPre->data;
+    root->left = deleteNode(root->left, iPre->data);
+  
+    
     
   }
+  return root;
 };
 
 
@@ -75,6 +84,13 @@ int main(){
   p1->left = p3;
   p1->right = p4;
 
+  display(p);
+  printf("\n");
+  inOrder(p);
+  printf("\n");
+  deleteNode(p, 3);
+  inOrder(p);
+  printf("\n");
   display(p);
 
 
