@@ -88,7 +88,7 @@ int main(){
   printf("\n");
   inOrder(p);
   printf("\n");
-  deleteNode(p, 3);
+  deleteNode(p, 5);
   inOrder(p);
   printf("\n");
   display(p);
