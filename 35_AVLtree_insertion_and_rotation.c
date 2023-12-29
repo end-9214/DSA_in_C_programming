@@ -25,6 +25,11 @@ struct Node *createNode(int key){
   return newNode;
 };
 
+int max(int a, int b){
+  return (a>b)?a:b;
+
+}
+
 int getBalanceFactor(struct Node *n){
   if(n==NULL){
     return 0;
@@ -84,10 +89,30 @@ struct Node * insert(struct Node * newNode, int key){
       return leftRotation(newNode);
     }
   // Left Right Case
+    if(bf>1 && key < newNode->left->key){
+      newNode->left = leftRotation(newNode->left);
+      return rightRotate(newNode);
+    }
+
   // Right Left Case
+    if(bf<-1 && key > newNode->right->key){
+      newNode->right = rightRotate(newNode->right);
+      return leftRotation(newNode);
+    }
+    return newNode;
 };
 
 int main(){
+
+  struct Node *root = NULL;
+  root = insert(root, 1);
+  root = insert(root, 2);
+  root = insert(root, 4);
+  root = insert(root, 5);
+  root = insert(root, 6);
+  root = insert(root, 3);
+
+
 
 
 
